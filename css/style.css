@@ -13,8 +13,42 @@ section{
     margin-bottom: 20px;
     background-color: rgb(29, 26, 30);
 }
-footer{
-    background-color: rgb(0, 0, 0);
-    padding: 90px;
-}
 
+footer {
+    background-color: rgb(0, 0, 0);
+    width: 100%;
+    height: auto;
+    color: #d6b1ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px; }
+    footer .redes {
+    display: flex;
+    padding-bottom: 10px; }
+    footer .redes img {
+        padding-left: 20px;
+        padding-right: 20px; }
+    footer h3 {
+    font-size: 1rem;
+    text-align: center;
+    padding: 10px; }
+    footer .footer-lista {
+    padding-left: 0;
+    display: flex;
+    list-style: none;
+    text-align: center;
+    border-top: 1px solid #d6b1ff;
+    align-items: center; }
+    footer .footer-lista li {
+        display: flex;
+        list-style: none;
+        text-align: center;
+        text-decoration: none; }
+        footer .footer-lista li a {
+        display: flex;
+        text-decoration: none;
+        padding-top: 20px;
+        padding-right: 20px;
+        padding-left: 20px;
+        color: rgb(180, 147, 37); }

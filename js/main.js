@@ -9,10 +9,6 @@ class Producto {
         this.url_img = url_img;
         this.cantidad = cantidad;
     }
-    sumaIva(){
-        this.precio = this.precio * 1.21;
-    }
-
 }
 
 class ProductoController {
@@ -98,10 +94,6 @@ class CarritoController{
         localStorage.setItem("listaCarrito", arrFormatoJSON)
     }
 
-    suma(el){
-        
-    }
-
     eliminar(id) {
         const index = this.listaCarrito.findIndex(producto => producto.id === id)
         if (index !== -1) {
@@ -115,6 +107,14 @@ class CarritoController{
             let arrFormatoJSON = JSON.stringify(this.listaCarrito)
             localStorage.setItem("listaCarrito", arrFormatoJSON)
         }
+    }
+
+    calcularTotal() {
+        let total = 0;
+        this.listaCarrito.forEach((producto) => {
+          total += producto.precio * producto.cantidad;
+        });
+        return total;
     }
 
     mostrarDOM(contenedor_carrito){
@@ -141,7 +141,14 @@ class CarritoController{
         </div>
             `
         })
+        let total = this.calcularTotal();
+        contenedor_carrito.innerHTML += `
+            
+            <h3 class="card-title">Total del carrito: ${total} ARS</h3>
+            
+        `;
     }
+
 }
 
 
@@ -159,8 +166,6 @@ const listaCarrito = []
 const productos = document.getElementById('productos')
 const contenedor_carrito = document.getElementById('contenedor_carrito')
 
-
-
 //Inicia Eventos
 
 controladorProductos.mostrarDOM(productos)
@@ -175,10 +180,11 @@ controladorProductos.listaProductos.forEach(el => {
 
         controladorCarrito.levantar()
         controladorCarrito.anadir(el)
-        controladorCarrito.mostrarDOM(contenedor_carrito)
+        controladorCarrito.mostrarDOM(contenedor_carrito);
 
         })
     })
+
 
 
     controladorCarrito.mostrarDOM(contenedor_carrito)
