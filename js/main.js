@@ -65,7 +65,7 @@ controladorProductos.levantar()
 class CarritoController{
     constructor(){
         this.listaCarrito = [];
-        this.cantidadTotal = 0;
+        // this.cantidadTotal = 0;
     }
 
     levantar(){
@@ -101,7 +101,7 @@ class CarritoController{
             prod.cantidad--;
     
             if (prod.cantidad <= 0) {
-                this.listaCarrito.splice(index, 1)
+                this.listaCarrito.splice(index, 1) //buscar
             }
     
             let arrFormatoJSON = JSON.stringify(this.listaCarrito)
@@ -142,15 +142,16 @@ class CarritoController{
             `
         })
         let total = this.calcularTotal();
-        contenedor_carrito.innerHTML += `
+        precio.innerHTML = `
             
-            <h3 class="card-title">Total del carrito: ${total} ARS</h3>
+            <p>Precio total: ${total}</p>
             
         `;
     }
 
 }
 
+const precio = document.getElementById('precio-total')
 
 //OB
 const controladorCarrito = new CarritoController()
