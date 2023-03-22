@@ -1,5 +1,4 @@
-//Comienza Class y Constructor
-
+//Class y Constructor
 class Producto {
     constructor(id, nombre, precio, descripcion, url_img, cantidad) {
         this.id = id;
@@ -11,6 +10,7 @@ class Producto {
     }
 }
 
+//Class y Constructor
 class ProductoController {
     constructor() {
         this.listaProductos = []
@@ -47,9 +47,10 @@ class ProductoController {
 
 }
 
+//Objeto
 const controladorProductos = new ProductoController()
 
-
+//Productos
 controladorProductos.agregarProducto(new Producto(1, "Elden Ring", 8599, "i'm malenia blade of miquella", "assets/img/header.jpg",10))
 controladorProductos.agregarProducto(new Producto(2, "Dark Souls", 5699, "plin plin plon", "assets/img/dark_souls_steam.jpg",10))
 controladorProductos.agregarProducto(new Producto(3, "Hogwarts Legacy", 8999, "you're a wizard harry", "assets/img/hog_steam.jpg",10))
@@ -59,13 +60,13 @@ controladorProductos.agregarProducto(new Producto(6, "Streets of Rage 4", 875, "
 controladorProductos.agregarProducto(new Producto(7, "Crusader Kings 3", 2240, "adictivo mal", "assets/img/crusader.jpg",10))
 controladorProductos.agregarProducto(new Producto(8, "RimWorld", 2100, "furros", "assets/img/rimworld_steam.jpg",10))
 
+//Storage
 controladorProductos.levantar()
 
-
+//Class y Constructor
 class CarritoController{
     constructor(){
         this.listaCarrito = [];
-        // this.cantidadTotal = 0;
     }
 
     levantar(){
@@ -144,36 +145,30 @@ class CarritoController{
         let total = this.calcularTotal();
         precio.innerHTML = `
             
-            <p>Precio total: ${total}</p>
+            <p>Precio total: ${total} ARS</p>
             
         `;
     }
 
 }
 
-const precio = document.getElementById('precio-total')
 
-//OB
+//Objeto
 const controladorCarrito = new CarritoController()
+//Storage
 controladorCarrito.levantar()
 
-//Termina Class y Constructor
 
 //Empieza DOM
-
-
-const listaCarrito = []
-
+const precio = document.getElementById('precio-total')
 const productos = document.getElementById('productos')
 const contenedor_carrito = document.getElementById('contenedor_carrito')
 
-//Inicia Eventos
-
 controladorProductos.mostrarDOM(productos)
-
 controladorCarrito.mostrarDOM(contenedor_carrito)
 
 
+//Evento
 controladorProductos.listaProductos.forEach(el => {
     const juegoAAgregar = document.getElementById(`games${el.id}`)
 
@@ -187,9 +182,7 @@ controladorProductos.listaProductos.forEach(el => {
     })
 
 
-
-    controladorCarrito.mostrarDOM(contenedor_carrito)
-
+//Evento
     // Agregar evento de click al botón "Quitar" de cada producto en el carrito
     contenedor_carrito.addEventListener('click', e => {
     if (e.target.classList.contains('btnEliminar')) {
