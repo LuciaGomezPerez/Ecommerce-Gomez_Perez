@@ -35,9 +35,6 @@ class ProductoController {
 
         // Buscar el producto con el id especificado
         const producto = this.listaProductos.find(p => p.id === id);
-
-        // Actualizar el contenido del modal con los datos del producto
-        //modal.querySelector('.modal-title').textContent = producto.nombre;
         modal.querySelector('.modal-body').innerHTML = `
             <div container d-flex  align-content-center flex-wrap  >
                 <div container d-flex  justify-content-center>
@@ -46,8 +43,8 @@ class ProductoController {
                     </div>
                         <section  class="d-flex justify-content-center align-items-center">
                         <div class="d-flex">
-                        <iframe class="d-flex align-content-center justify-content-center" width="600" height="420" src="${producto.video}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         
+                        <iframe width="560" height="315" src="${producto.video}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         </div>
                         </section>
                         <section class="d-flex flex-column align-items-center">
@@ -65,7 +62,8 @@ class ProductoController {
         modal.addEventListener('hidden.bs.modal', function () {
             const iframe = modal.querySelector('iframe');
             const temp = iframe.src;
-            iframe.src = temp; // re-initializing the src attribute value
+            iframe.src = temp;
+            //re-initializing the src attribute value
         });
         // Mostrar el modal
         const modalInstance = new bootstrap.Modal(modal);
@@ -94,32 +92,23 @@ class ProductoController {
 
 }
 
-
-//<video src="${el.video}" width="320" height="240" controls autoplay></video>
-
-// const getProducts = async () => {
-//     const response = await fetch("data.json");
-//     const data = await response.json();
-//     console.log(data);
-// };
-
-// getProducts();
 //Objeto
 const controladorProductos = new ProductoController()
 
 //Productos
-controladorProductos.agregarProducto(new Producto(1, "Elden Ring", 8599, "Levántate, tiznado, y déjate guiar por la gracia para esgrimir el poder del Anillo de Elden y convertirte en un Señor de Elden en las Tierras Intermedias.", "../assets/img/header.jpg", "https://www.youtube.com/embed/CptaXqVY6-E", 10))
-controladorProductos.agregarProducto(new Producto(2, "Dark Souls", 5699, "Entonces llegó el Fuego. Vuelve a disfrutar del aclamado juego que definió el género con el que empezó todo. Gracias a una magnífica remasterización, podrás regresar a Lordran con unos impresionantes detalles en alta definición y a 60 fps.", "../assets/img/dark_souls_steam.jpg", "https://www.youtube.com/embed/nzwnFYKNNdc", 10))
-controladorProductos.agregarProducto(new Producto(3, "Hogwarts Legacy", 8999, "Hogwarts Legacy es un RPG inmersivo de acción en mundo abierto. Ahora puedes tomar el control de la acción y ser el centro de tu propia aventura en el mundo mágico.", "../assets/img/hog_steam.jpg","https://www.youtube.com/embed/1O6Qstncpnc", 10))
-controladorProductos.agregarProducto(new Producto(4, "Signalis", 1060, " Terror de supervivencia en un futuro distópico en el que la humanidad ha descubierto un secreto oscuro. Desentraña un misterio cósmico y escapa de criaturas aterradoras en un complejo extraplanetario. Tú eres Elster, una técnica Replika en busca de sus sueños perdidos.", "../assets/img/signalis_steam.jpg", "https://www.youtube.com/embed/qxvpJ1g54sY", 10))
-controladorProductos.agregarProducto(new Producto(5, "God of War", 4199, "Kratos ha dejado atrás su venganza contra los dioses del Olimpo y vive ahora como un hombre en los dominios de los dioses y monstruos nórdicos. En este mundo cruel e implacable debe luchar para sobrevivir… y enseñar a su hijo a hacerlo también.", "../assets/img/god_steam.jpg","https://www.youtube.com/embed/K0u_kAWLJOA", 10))
-controladorProductos.agregarProducto(new Producto(6, "Streets of Rage 4", 875, "El clásico de todos los tiempos Streets of Rage, conocido como Bare Knuckle (ベア・ナックル Bea Nakkuru) en Japón, es una trilogía de beat ‘em ups famosa por su mecánica de juego intemporal y su música influida por el dance electrónico.", "../assets/img/streets.jpg", "https://www.youtube.com/embed/nDXY1WRef0Q", 10))
-controladorProductos.agregarProducto(new Producto(7, "Crusader Kings 3", 2240, "Ama, lucha, planea y reclama la grandeza. Determina el legado de tu casa nobiliaria en la gran estrategia en expansión de Crusader Kings III. La muerte solo es el comienzo mientras lideras el linaje de tu dinastía en esta completa simulación realista de la Edad Media.", "../assets/img/crusader.jpg", "https://www.youtube.com/embed/xjn66Cl3pMA", 10))
-controladorProductos.agregarProducto(new Producto(8, "RimWorld", 2100, "Un simulador de colonias de ciencia ficción dirigido por una brillante Inteligencia Artificial que narrará la historia. Genera historias al simular psicología, ecología, combate, clima, biomas, diplomacia, relaciones interpersonales, arte, medicina, comercio y mucho más.","../assets/img/rimworld_steam.jpg", "https://www.youtube.com/embed/3tDrxOASUog", 10))
-controladorProductos.agregarProducto(new Producto(9, "Blasphemous", 2098.25, "Blasphemous es un juego de acción y plataformas muy difícil que combina el ritmo rápido y el combate de un hack-n-slash con una narrativa profunda y evocadora, presentada al explorar un universo enorme hecho de niveles no lineales.", "../assets/img/blasphemous.jpg", "https://www.youtube.com/embed/T3SxYMu5qGY", 10))
-controladorProductos.agregarProducto(new Producto(10, "Project Zomboid", 2450, "Project Zomboid is the ultimate in zombie survival. Alone or in MP: you loot, build, craft, fight, farm and fish in a struggle to survive. A hardcore RPG skillset, a vast map, massively customisable sandbox and a cute tutorial raccoon await the unwary. So how will you die? All it takes is a bite..", "../assets/img/project.jpg", "https://www.youtube.com/embed/YhSd39QqQUg", 10))
-controladorProductos.agregarProducto(new Producto(11, "Darkest Dungeon", 3062.50, "Darkest Dungeon es un desafiante juego de rol gótico en mazmorras y por turnos que gira en torno al esfuerzo psicológico de la aventura. Recluta, entrena y lidera a un equipo de héroes imperfectos a través de enrevesados bosques, laberintos olvidados, criptas en ruinas y más allá.", "../assets/img/darkestdungeon.jpg", "https://www.youtube.com/embed/h-mXN3akTPU", 10))
-controladorProductos.agregarProducto(new Producto(12, "Pizza Tower", 393.74, "Pizza Tower es un juego de plataformas en 2D de ritmo rápido inspirado en la serie Wario Land, con énfasis en el movimiento, la exploración y el ataque de puntuación. Con pixel art muy estilizado inspirado en los dibujos animados de los años 90 y una banda sonora muy enérgica.", "../assets/img/pizza_tower.jpg", "https://www.youtube.com/embed/Wlq6fFOqI28", 10))
+controladorProductos.agregarProducto(new Producto(1, "Elden Ring", 8599, "Levántate, tiznado, y déjate guiar por la gracia para esgrimir el poder del Anillo de Elden y convertirte en un Señor de Elden en las Tierras Intermedias.", "../assets/img/header.jpg", "https://www.youtube-nocookie.com/embed/CptaXqVY6-E", 10))
+controladorProductos.agregarProducto(new Producto(2, "Dark Souls", 5699, "Entonces llegó el Fuego. Vuelve a disfrutar del aclamado juego que definió el género con el que empezó todo. Gracias a una magnífica remasterización, podrás regresar a Lordran con unos impresionantes detalles en alta definición y a 60 fps.", "../assets/img/dark_souls_steam.jpg", "https://www.youtube-nocookie.com/embed/nzwnFYKNNdc", 10))
+controladorProductos.agregarProducto(new Producto(3, "Hogwarts Legacy", 8999, "Hogwarts Legacy es un RPG inmersivo de acción en mundo abierto. Ahora puedes tomar el control de la acción y ser el centro de tu propia aventura en el mundo mágico.", "../assets/img/hog_steam.jpg", "https://www.youtube-nocookie.com/embed/1O6Qstncpnc", 10))
+controladorProductos.agregarProducto(new Producto(4, "Signalis", 1060, " Terror de supervivencia en un futuro distópico en el que la humanidad ha descubierto un secreto oscuro. Desentraña un misterio cósmico y escapa de criaturas aterradoras en un complejo extraplanetario. Tú eres Elster, una técnica Replika en busca de sus sueños perdidos.", "../assets/img/signalis_steam.jpg", "https://www.youtube-nocookie.com/embed/qxvpJ1g54sY", 10))
+controladorProductos.agregarProducto(new Producto(5, "God of War", 4199, "Kratos ha dejado atrás su venganza contra los dioses del Olimpo y vive ahora como un hombre en los dominios de los dioses y monstruos nórdicos. En este mundo cruel e implacable debe luchar para sobrevivir… y enseñar a su hijo a hacerlo también.", "../assets/img/god_steam.jpg", "https://www.youtube-nocookie.com/embed/K0u_kAWLJOA", 10))
+controladorProductos.agregarProducto(new Producto(6, "Streets of Rage 4", 875, "El clásico de todos los tiempos Streets of Rage, conocido como Bare Knuckle (ベア・ナックル Bea Nakkuru) en Japón, es una trilogía de beat ‘em ups famosa por su mecánica de juego intemporal y su música influida por el dance electrónico.", "../assets/img/streets.jpg", "https://www.youtube-nocookie.com/embed/nDXY1WRef0Q", 10))
+controladorProductos.agregarProducto(new Producto(7, "Crusader Kings 3", 2240, "Ama, lucha, planea y reclama la grandeza. Determina el legado de tu casa nobiliaria en la gran estrategia en expansión de Crusader Kings III. La muerte solo es el comienzo mientras lideras el linaje de tu dinastía en esta completa simulación realista de la Edad Media.", "../assets/img/crusader.jpg", "https://www.youtube-nocookie.com/embed/xjn66Cl3pMA", 10))
+controladorProductos.agregarProducto(new Producto(8, "RimWorld", 2100, "Un simulador de colonias de ciencia ficción dirigido por una brillante Inteligencia Artificial que narrará la historia. Genera historias al simular psicología, ecología, combate, clima, biomas, diplomacia, relaciones interpersonales, arte, medicina, comercio y mucho más.", "../assets/img/rimworld_steam.jpg", "https://www.youtube-nocookie.com/embed/3tDrxOASUog", 10))
+controladorProductos.agregarProducto(new Producto(9, "Blasphemous", 2098.25, "Blasphemous es un juego de acción y plataformas muy difícil que combina el ritmo rápido y el combate de un hack-n-slash con una narrativa profunda y evocadora, presentada al explorar un universo enorme hecho de niveles no lineales.", "../assets/img/blasphemous.jpg", "https://www.youtube-nocookie.com/embed/T3SxYMu5qGY", 10))
+controladorProductos.agregarProducto(new Producto(10, "Project Zomboid", 2450, "Project Zomboid is the ultimate in zombie survival. Alone or in MP: you loot, build, craft, fight, farm and fish in a struggle to survive. A hardcore RPG skillset, a vast map, massively customisable sandbox and a cute tutorial raccoon await the unwary. So how will you die? All it takes is a bite..", "../assets/img/project.jpg", "https://www.youtube-nocookie.com/embed/YhSd39QqQUg", 10))
+controladorProductos.agregarProducto(new Producto(11, "Darkest Dungeon", 3062.50, "Darkest Dungeon es un desafiante juego de rol gótico en mazmorras y por turnos que gira en torno al esfuerzo psicológico de la aventura. Recluta, entrena y lidera a un equipo de héroes imperfectos a través de enrevesados bosques, laberintos olvidados, criptas en ruinas y más allá.", "../assets/img/darkestdungeon.jpg", "https://www.youtube-nocookie.com/embed/h-mXN3akTPU", 10))
+controladorProductos.agregarProducto(new Producto(12, "Pizza Tower", 393.74, "Pizza Tower es un juego de plataformas en 2D de ritmo rápido inspirado en la serie Wario Land, con énfasis en el movimiento, la exploración y el ataque de puntuación. Con pixel art muy estilizado inspirado en los dibujos animados de los años 90 y una banda sonora muy enérgica.", "../assets/img/pizza_tower.jpg", "https://www.youtube-nocookie.com/embed/Wlq6fFOqI28", 10))
+
 
 //Storage
 controladorProductos.levantar()
@@ -244,7 +233,6 @@ controladorProductos.listaProductos.forEach(el => {
 
 })
 
-
 controladorProductos.listaProductos.forEach(el => {
     const juegoAAgregar = document.getElementById(`games${el.id}`)
 
@@ -339,7 +327,7 @@ btnvaciar.addEventListener("click", () => {
 let comentarios = [];
 
 window.addEventListener("load", () => {
-    console.log("la pagina esta nashee")
+
     const spinner = document.getElementById("spinner");
     spinner.style.display = "block";
     setTimeout(() => {
@@ -369,7 +357,7 @@ function mostrarComentarios() {
         <p><strong>Comentario:</strong> ${comentario.body}</p>
         </div>
         <hr>
-      `;
+    `;
         comentariosList.appendChild(comentarioItem);
     });
 }
